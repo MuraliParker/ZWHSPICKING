@@ -1,1 +1,0 @@
-sap.ui.define(["comsapparker/zwmpicking/controller/MainView.controller"],function(n){"use strict";QUnit.module("MainView Controller");QUnit.test("I should test the MainView controller",function(e){var i=new n;i.onInit();e.ok(i)})});
