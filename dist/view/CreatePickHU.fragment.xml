@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog  title="How many boxes ?" contentHeight="50px" contentWidth="30px">
+        <content>
+           <Input width="50%" submit="onEnterBoxesInput" change="onEnterBoxesInput" />
+        </content>
+        <beginButton>
+            <Button text="Back" press="onPressBackButton"/>
+        </beginButton>
+        <endButton>
+        <Button text="Create HU" enabled="false" press="onPressCreateHU"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

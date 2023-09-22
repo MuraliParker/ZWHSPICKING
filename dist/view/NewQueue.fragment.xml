@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog  title="Queue List" contentHeight="250px" contentWidth="400px">
+        <content>
+            <Table id="idSearchNewQueue"  mode="SingleSelectMaster" noDataText="No Queue Found" items="{QueueModel>/QueueModelSet}">
+                <ColumnListItem >
+			<cells>
+				<Text text="{QueueModel>Queue}"/>
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+                    <Label design="Bold" text="Queue" />
+                </header>
+			</Column>
+		</columns>
+            </Table>
+        </content>
+        <beginButton>
+            <Button text="OK" press="onPressOkQueueButton"/>
+        </beginButton>
+        <endButton>
+        <Button text="Cancel" press="onPressCancelQueueButton"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

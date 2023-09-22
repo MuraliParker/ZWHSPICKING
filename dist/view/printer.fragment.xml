@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog  title="Printer List" contentHeight="250px" contentWidth="400px">
+        <content>
+            <Table id="idSearchPrinter"  mode="SingleSelectMaster" noDataText="No Printer Found" items="{PrinterModel>/PrinterModelSet}">
+                <ColumnListItem>
+			<cells>
+				<Text text="{PrinterModel>Spld}"/>
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+                    <Label design="Bold" text="Printer ID" />
+                </header>
+			</Column>
+		</columns>
+            </Table>
+        </content>
+        <beginButton>
+            <Button text="OK" press="onPressOkButton"/>
+        </beginButton>
+        <endButton>
+        <Button text="Cancel" press="onPressCancelButton"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

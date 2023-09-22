@@ -1,0 +1,46 @@
+
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog  title="Exception List" contentHeight="250px" contentWidth="400px">
+        <content>
+            <Table id="exceptionTable"  mode="MultiSelect" noDataText="No Exception Found" items="{ExceptionModel>/ExceptionModelSet}">
+                
+                
+                <ColumnListItem >
+                    <cells>
+                        
+                        <Text text="{ExceptionModel>Exccode}" />
+                        <Text text="{ExceptionModel>Descr}" />
+                        <Text text="{ExceptionModel>Buscon}" />
+                        <Text text="{ExceptionModel>Prmode}" />
+                    </cells>
+                </ColumnListItem>
+                <columns>
+                    <Column>
+                        <header>
+                            <Label design="Bold" text="Exception Code" />
+                        </header>
+                    </Column>
+                    <Column >
+                        <header>
+                            <Label text="Exception Description" design="Bold"/>
+                        </header>
+                    </Column>
+                    <Column visible="true">
+                        <header>
+                            <Label text="Business Context" design="Bold"/>
+                        </header>
+                    </Column>
+                    <Column visible="true">
+                        <header>
+                            <Label text="PR Code" design="Bold"/>
+                        </header>
+                    </Column>
+                    
+                </columns>
+            </Table>
+        </content>
+        <beginButton>
+            <Button text="OK" press="onPressOkButton"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

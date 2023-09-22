@@ -1,0 +1,36 @@
+<mvc:View
+    controllerName="com.sap.parker.zwmpicking.controller.MainView"
+   height="100%"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:ui="sap.ca.ui"
+		displayBlock="true">
+	<semantic:FullscreenPage id="semanticPage" title="Task Execution" showNavButton="false" navButtonPress="onNavButtonPress">
+		<semantic:content>
+			<f:SimpleForm id="SimpleFormDisplay354" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+            
+					<Label id="lblMaterial" class="sapUiNoContentPadding" text="Material Handler"></Label>
+					<Input id="inpMat"  class="sapUiNoContentPadding" change="onMaterialHandlerChange" placeholder="Enter Material Handler" width="50%"></Input>
+					<Label id="lblPrinter" visible="false" class="sapUiNoContentPadding" text="Printer"></Label>
+					<Input id="inpPrinter" visible="false" class="sapUiNoContentPadding" valueHelpRequest="showPrinterValueHelp" showValueHelp="true" placeholder="Enter Printer Name" width="50%"></Input>
+					<Label id="lblCurrQ" class="sapUiNoContentPadding" visible="false" text="Current Queue"></Label>
+					<Input id="inpCurrQ"  class="sapUiNoContentPadding" visible="false" editable="false" width="50%"></Input>
+					<Label id="lblnewQ" class="sapUiNoContentPadding" visible="false" text="New Queue"></Label>
+					<Input id="inpnewQ"  class="sapUiNoContentPadding" visible="false" valueHelpRequest="showNewQueueValueHelp" showValueHelp="true" placeholder="Enter New Queue" width="50%"></Input>
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:customFooterContent>
+			
+			<Button id="changeQbtn" visible="false" text="Set Queue" type="Accept" press="onChangeQueue"/>
+            <Button id="setPrinterbtn" visible="false" text="Set Printer" type="Accept" press="onSetPrinter"/>
+            <Button id="execbtn" visible="false" text="Execute" type="Accept" press="onExecutePress"/>
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>
