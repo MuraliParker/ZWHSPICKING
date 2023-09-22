@@ -1,0 +1,37 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog   contentHeight="400px" contentWidth="400px">
+        <content>
+            <Table id="idBatchNumber" >
+            <headerToolbar>
+            <Toolbar >
+            <content> 
+            <Title level="H2" text="Batch Number" />
+            <ToolbarSpacer/>
+            <Button icon="sap-icon://decline" press="onPressBatchCancelButton"/>
+            </content>
+            </Toolbar>
+            
+            </headerToolbar>
+                <ColumnListItem id="batchNumberColmnList">
+			<cells>
+				<Input></Input>
+				
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column >
+				<header>
+                    <!-- <Label design="Bold" text="Batch Number" /> -->
+                </header>
+			</Column>
+		</columns>
+            </Table>
+        </content>
+        <beginButton>
+            <Button text="Validate" press="onBatchValidateButton"/>
+        </beginButton>
+        <endButton>
+        <Button text="Submit" enabled="false" press="onPressBatchCancelButton"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="com.sap.parker.zwmpicking.controller.TaskView"
+   height="100%"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:ui="sap.ca.ui"
+		displayBlock="true">
+	<semantic:FullscreenPage id="semanticPage" title="Task Execution" showNavButton="false" navButtonPress="onNavButtonPress">
+		<semantic:content>
+			<f:SimpleForm id="warehouseHdrForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false"  columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+            
+					<!-- <Label id="whOrderlbl" class="sapUiNoContentPadding" text="WareHouse Order/Task"></Label>
+					<Text id="whOrderdisplay" text="{parts:[{path:'WarehouseTaskModel>/Who'},{path:'WarehouseTaskModel>/Tanum'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.mergeWHOrderTask'}" class="sapUiNoContentPadding" width="50%"></Text> -->
+					<!-- <Label id="whTasklbl"  class="sapUiNoContentPadding" text="Warehouse Task"></Label>
+					<Text id="whTaskdisplay" text="{WarehouseTaskModel>/Tanum}" class="sapUiNoContentPadding" width="50%"></Text> -->
+					<!-- <Label id="whQueuelbl" class="sapUiNoContentPadding" text="Queue"></Label>
+					<Text id="whQueuedisplay" text="{WarehouseTaskModel>/Queue}" class="sapUiNoContentPadding" width="50%"></Text> -->
+					
+				</f:content>
+			</f:SimpleForm>
+            <f:SimpleForm id="warehouseDetailForm" editable="true" layout="ResponsiveGridLayout"  columnsXL="2" columnsL="2" columnsM="2"
+				singleContainerFullSize="false">
+				<f:content>
+                    <core:Title id="_IDGenTitle1"/>
+                    <Label id="whOrderlbl" class="sapUiNoContentPadding" text="WareHouse Order/Task/PTO"></Label>
+					<Text id="whOrderdisplay" text="{parts:[{path:'WarehouseTaskModel>/Who'},{path:'WarehouseTaskModel>/Tanum'},{path:'WarehouseTaskModel>/prod_order'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.mergeWHOrderTask'}" class="sapUiNoContentPadding"></Text>
+					<Label id="sourceBinlbl" class="sapUiNoContentPadding" text="Source Bin"></Label>
+					<Input id="inpSourceBin" value="{WarehouseTaskModel>/Vlpla}" class="sapUiNoContentPadding" editable="false"></Input>
+					<Input id="inpStorage" value="{WarehouseTaskModel>/Vltyp}" editable="false" />
+                    <Input id="inpScanSourceBin" value="{WarehouseTaskModel>/Svlpla}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true"></Input>
+                    <Label id="partLbl"  class="sapUiNoContentPadding" text="Part"></Label>
+					<Input id="inpPart" value ="{WarehouseTaskModel>/Matid}" class="sapUiNoContentPadding" editable="false" ></Input>
+                    <Input id="inpScanPart" value="{parts:[{path:'WarehouseTaskModel>/Smatid'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.removepchar'}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" ></Input>
+                    <Label id="descLbl" class="sapUiNoContentPadding" text="Description"></Label>
+					<Input id="inpDesc"  value="{WarehouseTaskModel>/Maktx}" class="sapUiNoContentPadding" editable="false"></Input>
+					<!-- <Label id="lblBatch" class="sapUiNoContentPadding" text="Batch"></Label>
+					<Input id="inpBatch"  value="{WarehouseTaskModel>/Batchid}" class="sapUiNoContentPadding" editable="false" width="70%"></Input> -->
+                    
+                    <!-- <Input id="inpSerialNumber"  class="sapUiNoContentPadding" editable="false" width="70%"></Input> -->
+                    
+                    <Label id="lblTargetQty" class="sapUiNoContentPadding" text="Tar/Dif/Act"></Label>
+                    <Input id="inpTargetQty" value="{WarehouseTaskModel>/Vsolm}" class="sapUiNoContentPadding" editable="false"/>
+                    <Input id="inpQtyDifference" class="sapUiNoContentPadding" editable="false"/>
+                    <Input id="inpActualQty" value="{parts:[{path:'WarehouseTaskModel>/Nista'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.CheckLeadingZeros'}" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" />
+                    <!-- <Input id="inpActualQty" value="{WarehouseTaskModel>/Nista}" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" /> -->
+                    <Text id="uom" text="{WarehouseTaskModel>/Meins}" />
+                    <Label id="lblSerialNumber" class="sapUiNoContentPadding" text="Serial/Batch"></Label>
+                    <Button id="scanAddSerialBtn" enabled="{parts:[{path:'WarehouseTaskModel>/Sernp'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.checkSerialNumber'}"  text="Add Serial Number" press="onPressSerialNumber" type="Transparent" icon="sap-icon://add"></Button>
+					<Button id="scanAddBatchBtn" enabled="{parts:[{path:'WarehouseTaskModel>/Xchpf'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.checkBatch'}" text="Add Batch Number" press="onPressBatchNumber" type="Transparent" icon="sap-icon://add"></Button>
+                    <Label id="lblDestinationBin" class="sapUiNoContentPadding" text="Destination Bin"></Label>
+					<Input id="inpDestinationBin" value="{WarehouseTaskModel>/Nlpla}" class="sapUiNoContentPadding" editable="false" ></Input>
+                    <Input id="inpDestinationType" value="{WarehouseTaskModel>/Nltyp}" editable="false" />
+                    <Input id="inpScanDestinationBin" value="{WarehouseTaskModel>/Snlpla}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" ></Input>
+                    <Label id="pickbin" text="Picking Bin" visible="{= ${WarehouseTaskModel>/Sortf} ? true : false }"/>
+                    <Input id="inpPickbin" value="{WarehouseTaskModel>/Sortf}" visible="{= ${WarehouseTaskModel>/Sortf} ? true : false }"  class="sapUiNoContentPadding" editable="false" ></Input>
+					<Label id="print" text="Print"/>
+                    <CheckBox id="printFlagCheckBox"></CheckBox>
+                    <core:Title id="_IDGenTitle2"/>
+
+                    <!-- <Label id="scansourceBinlbl" class="sapUiNoContentPadding" text="Scan Source Bin"></Label>
+					<Input id="inpScanSourceBin" value="{WarehouseTaskModel>/Svlpla}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"></Input> -->
+					<!-- <Label id="scanPartLbl"  class="sapUiNoContentPadding" text="Scan Part"></Label>
+					<Input id="inpScanPart" value="{WarehouseTaskModel>/Smatid}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"></Input> -->
+					<!-- <Label id="scandescLbl"></Label>
+					<Text id="inpscandescLbl"></Text> -->
+					<!-- <Label id="lblScanBatch"  class="sapUiNoContentPadding" text="Scan Batch"></Label>
+                    <Button id="scanAddBatchBtn" enabled="{parts:[{path:'WarehouseTaskModel>/Xchpf'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.checkBatch'}" text="Add Batch Number" press="onPressBatchNumber" type="Transparent" icon="sap-icon://add"></Button>
+					<Input id="inpScanBatch"  visible="false" value="{WarehouseTaskModel>/Sbatchid}" liveChange="enableExecbtn"  change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"></Input>
+                    <Label id="lblScanSerialNumber"  class="sapUiNoContentPadding" text="Scan Serial Number"></Label>
+                    <Button id="scanAddSerialBtn" enabled="{parts:[{path:'WarehouseTaskModel>/Sernp'}], formatter:'com.sap.parker.zwmpicking.utils.Formatter.checkSerialNumber'}"  text="Add Serial Number" press="onPressSerialNumber" type="Transparent" icon="sap-icon://add"></Button>
+					<Input id="inpScanSerialNumber" visible="false" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"></Input> -->
+                    <!-- <Label id="lblActualQty" class="sapUiNoContentPadding" text="Actual Quantity"></Label> -->
+					<!-- <Input id="inpActualQty" value="{path: 'WarehouseTaskModel>/Nista', type: 'sap.ui.model.type.Float',formatOptions: {
+					maxFractionDigits: 3}}" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%">
+                    <layoutData><FlexItemData growFactor="1"></FlexItemData></layoutData>
+                    </Input> -->
+                    <!-- <Input id="inpActualQty1" value="{WarehouseTaskModel>/Nista}" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"> -->
+                    <!-- <layoutData><FlexItemData growFactor="1"></FlexItemData></layoutData>
+                    </Input>
+                    <Text text="{WarehouseTaskModel>/Meins}" /> -->
+                    <!-- <Label id="lblQtyDifference" class="sapUiNoContentPadding" text="Difference Quantity"></Label>
+					<Input id="inpQtyDifference1" class="sapUiNoContentPadding" editable="false" width="70%">
+                    <layoutData><FlexItemData growFactor="1"></FlexItemData></layoutData>
+                    </Input>
+                    <Text text="{WarehouseTaskModel>/Meins}" />
+                    <Label id="lblScanDestinationBin" class="sapUiNoContentPadding" text="Scan Destination Bin"></Label>
+					<Input id="inpScanDestinationBin" value="{WarehouseTaskModel>/Snlpla}" liveChange="enableExecbtn" change="enableExecbtn" class="sapUiNoContentPadding" editable="true" width="70%"></Input> -->
+				</f:content>
+			</f:SimpleForm>
+		</semantic:content>
+		<semantic:customFooterContent>
+            <Button id="btnCheckHU" text="Create Pick HU" press="onPressCreatePickHU"></Button>
+              <!-- <Button id="prntbtn" text="Print" press="onPrintLabels"></Button> -->
+              <Button id="excpbtn" text="Exception" press="onException"></Button>
+              <Button id="changeQbtn"  text="Change Queue"  press="onChangeQueue"/>
+			 <Button id="execbtn" enabled="false" text="Execute"  press="onExecutePress"/>
+			
+            
+            
+		</semantic:customFooterContent>
+	</semantic:FullscreenPage>
+</mvc:View>
